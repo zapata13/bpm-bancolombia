@@ -8,14 +8,26 @@ public class Transaccion implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
 
-	@org.kie.api.definition.type.Label(value = "Fecha")
+	@org.kie.api.definition.type.Label("Fecha")
 	private java.lang.String fecha;
-	@org.kie.api.definition.type.Label(value = "Numero Cuenta")
+	@org.kie.api.definition.type.Label("Numero Cuenta")
 	private java.lang.String numCuenta;
-	@org.kie.api.definition.type.Label(value = "Tipo de Transaccion")
+	@org.kie.api.definition.type.Label("Tipo de Transaccion")
 	private java.lang.String tipotx;
-	@org.kie.api.definition.type.Label(value = "Valor")
+	@org.kie.api.definition.type.Label("Valor")
 	private java.lang.Double valor;
+
+	@org.kie.api.definition.type.Label(value = "Existe en Cuenta")
+	private java.lang.Boolean existeCuenta;
+
+	@org.kie.api.definition.type.Label(value = "Valor en cuenta")
+	private java.lang.Double valorCuenta;
+
+	@org.kie.api.definition.type.Label(value = "Existe en Log")
+	private java.lang.Boolean existeLog;
+
+	@org.kie.api.definition.type.Label(value = "Valor en Log")
+	private java.lang.Double valorLog;
 
 	public Transaccion() {
 	}
@@ -52,12 +64,50 @@ public class Transaccion implements java.io.Serializable {
 		this.valor = valor;
 	}
 
+	public java.lang.Boolean getExisteCuenta() {
+		return this.existeCuenta;
+	}
+
+	public void setExisteCuenta(java.lang.Boolean existeCuenta) {
+		this.existeCuenta = existeCuenta;
+	}
+
+	public java.lang.Double getValorCuenta() {
+		return this.valorCuenta;
+	}
+
+	public void setValorCuenta(java.lang.Double valorCuenta) {
+		this.valorCuenta = valorCuenta;
+	}
+
+	public java.lang.Boolean getExisteLog() {
+		return this.existeLog;
+	}
+
+	public void setExisteLog(java.lang.Boolean existeLog) {
+		this.existeLog = existeLog;
+	}
+
+	public java.lang.Double getValorLog() {
+		return this.valorLog;
+	}
+
+	public void setValorLog(java.lang.Double valorLog) {
+		this.valorLog = valorLog;
+	}
+
 	public Transaccion(java.lang.String fecha, java.lang.String numCuenta,
-			java.lang.String tipotx, java.lang.Double valor) {
+			java.lang.String tipotx, java.lang.Double valor,
+			java.lang.Boolean existeCuenta, java.lang.Double valorCuenta,
+			java.lang.Boolean existeLog, java.lang.Double valorLog) {
 		this.fecha = fecha;
 		this.numCuenta = numCuenta;
 		this.tipotx = tipotx;
 		this.valor = valor;
+		this.existeCuenta = existeCuenta;
+		this.valorCuenta = valorCuenta;
+		this.existeLog = existeLog;
+		this.valorLog = valorLog;
 	}
 
 }
