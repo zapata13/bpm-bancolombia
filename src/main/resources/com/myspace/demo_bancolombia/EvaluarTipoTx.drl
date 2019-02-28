@@ -11,27 +11,27 @@ when
     $t: Transaccion( existeCuenta == true, existeLog == true, isEqualValues()) 
 then     
     modify($t){
-        setOutboundQueue("ALL_OK");
+        setResultRules("ALL_OK");
     } 
 end  
 
 rule "Gabetas OK" 
 ruleflow-group 'reglasBancolombia'
 when     
-    $t: Transaccion( existsInAccount == false, existsInLog == true, matchesValue == true ) 
+    $t: Transaccion( existeCuenta == false, existeLog == true, isEqualValues()) 
 then     
     modify($t){
-        setOutboundQueue("GABETAS");
+        setResultRules("NO_EXISTE_CUENTA");
     } 
 end  
 
 rule "Gabetas modified " 
 ruleflow-group 'reglasBancolombia'
 when     
-    $t: Transaccioncom.myspace.demo_bancolombia.MovimientoReply( )( existsInAccount == true, existsInLog == true, matchesValue == false ) 
+    $t: Transaccion( existeCuenta == true, existeLog == true, !isEqualValues() ) 
 then     
     modify($t){         
-        setValue(Math.Abs(valueInAccount - valueInLog));         
-        setOutboundQueue("ALL_OK");
+        setValor(Math.Abs(valorCuenta - valorLog));         
+        setResultRules("VALOR_NO_COINCIDE");
     } 
 end
