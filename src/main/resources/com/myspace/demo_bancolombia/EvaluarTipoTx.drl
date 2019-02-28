@@ -1,2 +1,36 @@
 package com.myspace.demo_bancolombia;
 
+
+import com.myspace.demo_bancolombia.Transaccion;
+
+
+rule "All OK" 
+ruleflow-group 'reglasBancolombia'
+when     
+    $t: Transaccion( existsInAccount == true, existsInLog == true, matchesValue == true ) 
+then     
+    modify($t){
+        setOutboundQueue("ALL_OK");
+    } 
+end  
+
+rule "Gabetas OK" 
+ruleflow-group 'reglasBancolombia'
+when     
+    $t: Transaccion( existsInAccount == false, existsInLog == true, matchesValue == true ) 
+then     
+    modify($t){
+        setOutboundQueue("GABETAS");
+    } 
+end  
+
+rule "Gabetas modified " 
+ruleflow-group 'reglasBancolombia'
+when     
+    $t: Transaccioncom.myspace.demo_bancolombia.MovimientoReply( )( existsInAccount == true, existsInLog == true, matchesValue == false ) 
+then     
+    modify($t){         
+        setValue(Math.Abs(valueInAccount - valueInLog));         
+        setOutboundQueue("ALL_OK");
+    } 
+end
