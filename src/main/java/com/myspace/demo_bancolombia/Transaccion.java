@@ -17,17 +17,20 @@ public class Transaccion implements java.io.Serializable {
 	@org.kie.api.definition.type.Label("Valor")
 	private java.lang.Double valor;
 
-	@org.kie.api.definition.type.Label(value = "Existe en Cuenta")
+	@org.kie.api.definition.type.Label("Existe en Cuenta")
 	private java.lang.Boolean existeCuenta;
 
-	@org.kie.api.definition.type.Label(value = "Valor en cuenta")
+	@org.kie.api.definition.type.Label("Valor en cuenta")
 	private java.lang.Double valorCuenta;
 
-	@org.kie.api.definition.type.Label(value = "Existe en Log")
+	@org.kie.api.definition.type.Label("Existe en Log")
 	private java.lang.Boolean existeLog;
 
-	@org.kie.api.definition.type.Label(value = "Valor en Log")
+	@org.kie.api.definition.type.Label("Valor en Log")
 	private java.lang.Double valorLog;
+
+	@org.kie.api.definition.type.Label(value = "Resultado reglas")
+	private java.lang.String resultRules;
 
 	public Transaccion() {
 	}
@@ -96,14 +99,23 @@ public class Transaccion implements java.io.Serializable {
 		this.valorLog = valorLog;
 	}
 
-    public Boolean isEqualValues(){
-        return (Math.abs(this.valorLog - this.valorCuenta) < 0.01);
-    }
+	public Boolean isEqualValues() {
+		return (Math.abs(this.valorLog - this.valorCuenta) < 0.01);
+	}
+
+	public java.lang.String getResultRules() {
+		return this.resultRules;
+	}
+
+	public void setResultRules(java.lang.String resultRules) {
+		this.resultRules = resultRules;
+	}
 
 	public Transaccion(java.lang.String fecha, java.lang.String numCuenta,
 			java.lang.String tipotx, java.lang.Double valor,
 			java.lang.Boolean existeCuenta, java.lang.Double valorCuenta,
-			java.lang.Boolean existeLog, java.lang.Double valorLog) {
+			java.lang.Boolean existeLog, java.lang.Double valorLog,
+			java.lang.String resultRules) {
 		this.fecha = fecha;
 		this.numCuenta = numCuenta;
 		this.tipotx = tipotx;
@@ -112,6 +124,7 @@ public class Transaccion implements java.io.Serializable {
 		this.valorCuenta = valorCuenta;
 		this.existeLog = existeLog;
 		this.valorLog = valorLog;
+		this.resultRules = resultRules;
 	}
 
 }
