@@ -28,7 +28,7 @@ end
 rule "Gabetas modified " 
 ruleflow-group 'reglasBancolombia'
 when     
-    $t: Transaccion( existeCuenta == true, existeLog == true, !isEqualValues() ) 
+    $t: Transaccion( existeCuenta == true, existeLog == true, isEqualValues() == false ) 
 then     
     modify($t){         
         setValor(Math.Abs(valorCuenta - valorLog));         
