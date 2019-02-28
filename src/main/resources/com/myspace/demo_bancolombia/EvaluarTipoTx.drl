@@ -7,7 +7,8 @@ import com.myspace.demo_bancolombia.Transaccion;
 rule "All OK" 
 ruleflow-group 'reglasBancolombia'
 when     
-    $t: Transaccion( existsInAccount == true, existsInLog == true, matchesValue == true ) 
+    //$t: Transaccion( existsInAccount == true, existsInLog == true, matchesValue == true )
+    $t: Transaccion( existeCuenta == true, existeLog == true, isEqualValues()) 
 then     
     modify($t){
         setOutboundQueue("ALL_OK");
