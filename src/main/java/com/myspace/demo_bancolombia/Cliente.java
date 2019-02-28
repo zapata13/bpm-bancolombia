@@ -6,12 +6,35 @@ package com.myspace.demo_bancolombia;
 
 public class Cliente implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public Cliente() {
-    }
+	@org.kie.api.definition.type.Label(value = "Cedula")
+	private java.lang.String cedula;
+	@org.kie.api.definition.type.Label(value = "Nombre")
+	private java.lang.String nombre;
 
+	public Cliente() {
+	}
 
+	public java.lang.String getCedula() {
+		return this.cedula;
+	}
 
+	public void setCedula(java.lang.String cedula) {
+		this.cedula = cedula;
+	}
+
+	public java.lang.String getNombre() {
+		return this.nombre;
+	}
+
+	public void setNombre(java.lang.String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Cliente(java.lang.String cedula, java.lang.String nombre) {
+		this.cedula = cedula;
+		this.nombre = nombre;
+	}
 
 }
