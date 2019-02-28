@@ -6,12 +6,24 @@ package com.myspace.demo_bancolombia;
 
 public class VerificarClienteReply implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public VerificarClienteReply() {
-    }
+	@org.kie.api.definition.type.Label(value = "Numero de Cuenta")
+	private java.lang.String numCuenta;
 
+	public VerificarClienteReply() {
+	}
 
+	public java.lang.String getNumCuenta() {
+		return this.numCuenta;
+	}
 
+	public void setNumCuenta(java.lang.String numCuenta) {
+		this.numCuenta = numCuenta;
+	}
+
+	public VerificarClienteReply(java.lang.String numCuenta) {
+		this.numCuenta = numCuenta;
+	}
 
 }
