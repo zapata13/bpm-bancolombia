@@ -96,6 +96,10 @@ public class Transaccion implements java.io.Serializable {
 		this.valorLog = valorLog;
 	}
 
+    public Boolean isEqualValues(){
+        return (Math.abs(this.valorLog - this.valorCuenta) < 0.01);
+    }
+
 	public Transaccion(java.lang.String fecha, java.lang.String numCuenta,
 			java.lang.String tipotx, java.lang.Double valor,
 			java.lang.Boolean existeCuenta, java.lang.Double valorCuenta,
