@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_HcNWwDsPEem0pYHS5bGSyA" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_ukO7IDsPEem0pYHS5bGSyA" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
   <bpmn2:itemDefinition id="_verificaClienteItem" structureRef="com.myspace.demo_bancolombia.VerificarClienteReply"/>
   <bpmn2:itemDefinition id="_clienteItem" structureRef="com.myspace.demo_bancolombia.Cliente"/>
   <bpmn2:itemDefinition id="_transaccionItem" structureRef="com.myspace.demo_bancolombia.Transaccion"/>
@@ -37,12 +37,14 @@
         </drools:onEntry-script>
         <drools:onExit-script scriptFormat="http://www.java.com/java">
           <drools:script><![CDATA[System.out.println("Finaliza invocacion servicio Rest");
-System.out.println("Valor obtenido -> "+verificaCliente.getNumCuenta());]]></drools:script>
+System.out.println("Valor obtenido -> "+verificaCliente.getNumCuenta());
+transaccion.setNumCuenta(verificaCliente.getNumCuenta());
+System.out.println("Valor obtenido en variable transaccion -> "+transaccion.getNumCuenta());]]></drools:script>
         </drools:onExit-script>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_04B24310-7428-4B27-BA9A-F80A357B59F3</bpmn2:incoming>
       <bpmn2:outgoing>_5F6C5D2B-E798-4549-B508-40F443E37FC3</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_HcNWwTsPEem0pYHS5bGSyA">
+      <bpmn2:ioSpecification id="_ukO7ITsPEem0pYHS5bGSyA">
         <bpmn2:dataInput id="_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ConnectTimeoutInputX" drools:dtype="String" itemSubjectRef="__4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ConnectTimeoutInputXItem" name="ConnectTimeout"/>
         <bpmn2:dataInput id="_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ReadTimeoutInputX" drools:dtype="String" itemSubjectRef="__4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ReadTimeoutInputXItem" name="ReadTimeout"/>
         <bpmn2:dataInput id="_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_UrlInputX" drools:dtype="String" itemSubjectRef="__4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_UrlInputXItem" name="Url"/>
@@ -54,7 +56,7 @@ System.out.println("Valor obtenido -> "+verificaCliente.getNumCuenta());]]></dro
         <bpmn2:dataInput id="_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ResultClassInputX" drools:dtype="String" itemSubjectRef="__4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ResultClassInputXItem" name="ResultClass"/>
         <bpmn2:dataInput id="_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
         <bpmn2:dataOutput id="_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ResultOutputX" drools:dtype="com.myspace.demo_bancolombia.VerificarClienteReply" itemSubjectRef="__4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ResultOutputXItem" name="Result"/>
-        <bpmn2:inputSet id="_HcNWwjsPEem0pYHS5bGSyA">
+        <bpmn2:inputSet id="_ukO7IjsPEem0pYHS5bGSyA">
           <bpmn2:dataInputRefs>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ConnectTimeoutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ReadTimeoutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_UrlInputX</bpmn2:dataInputRefs>
@@ -66,60 +68,60 @@ System.out.println("Valor obtenido -> "+verificaCliente.getNumCuenta());]]></dro
           <bpmn2:dataInputRefs>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ResultClassInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_HcNWwzsPEem0pYHS5bGSyA">
+        <bpmn2:outputSet id="_ukO7IzsPEem0pYHS5bGSyA">
           <bpmn2:dataOutputRefs>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ResultOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_HcNWxDsPEem0pYHS5bGSyA">
+      <bpmn2:dataInputAssociation id="_ukO7JDsPEem0pYHS5bGSyA">
         <bpmn2:targetRef>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ConnectTimeoutInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_HcNWxTsPEem0pYHS5bGSyA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_HcNWxjsPEem0pYHS5bGSyA"><![CDATA[5000]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_HcNWxzsPEem0pYHS5bGSyA">_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ConnectTimeoutInputX</bpmn2:to>
+        <bpmn2:assignment id="_ukO7JTsPEem0pYHS5bGSyA">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_ukO7JjsPEem0pYHS5bGSyA"><![CDATA[5000]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_ukO7JzsPEem0pYHS5bGSyA">_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ConnectTimeoutInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_HcNWyDsPEem0pYHS5bGSyA">
+      <bpmn2:dataInputAssociation id="_ukO7KDsPEem0pYHS5bGSyA">
         <bpmn2:targetRef>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ReadTimeoutInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_HcNWyTsPEem0pYHS5bGSyA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_HcNWyjsPEem0pYHS5bGSyA"><![CDATA[10000]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_HcNWyzsPEem0pYHS5bGSyA">_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ReadTimeoutInputX</bpmn2:to>
+        <bpmn2:assignment id="_ukO7KTsPEem0pYHS5bGSyA">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_ukO7KjsPEem0pYHS5bGSyA"><![CDATA[10000]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_ukO7KzsPEem0pYHS5bGSyA">_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ReadTimeoutInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_HcNWzDsPEem0pYHS5bGSyA">
+      <bpmn2:dataInputAssociation id="_ukO7LDsPEem0pYHS5bGSyA">
         <bpmn2:targetRef>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_UrlInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_HcNWzTsPEem0pYHS5bGSyA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_HcNWzjsPEem0pYHS5bGSyA"><![CDATA[http://bancolombiarest-app-bc-rest-services.apps.dmdemo.rhcol.com/cliente/verificar/#{cliente.getCedula()}/220219/1/123]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_HcNWzzsPEem0pYHS5bGSyA">_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_UrlInputX</bpmn2:to>
+        <bpmn2:assignment id="_ukO7LTsPEem0pYHS5bGSyA">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_ukO7LjsPEem0pYHS5bGSyA"><![CDATA[http://bancolombiarest-app-bc-rest-services.apps.dmdemo.rhcol.com/cliente/verificar/#{cliente.getCedula()}/220219/1/123]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_ukO7LzsPEem0pYHS5bGSyA">_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_UrlInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_HcNW0DsPEem0pYHS5bGSyA">
+      <bpmn2:dataInputAssociation id="_ukO7MDsPEem0pYHS5bGSyA">
         <bpmn2:targetRef>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ContentTypeInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_HcNW0TsPEem0pYHS5bGSyA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_HcNW0jsPEem0pYHS5bGSyA"><![CDATA[application/json]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_HcNW0zsPEem0pYHS5bGSyA">_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ContentTypeInputX</bpmn2:to>
+        <bpmn2:assignment id="_ukO7MTsPEem0pYHS5bGSyA">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_ukO7MjsPEem0pYHS5bGSyA"><![CDATA[application/json]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_ukO7MzsPEem0pYHS5bGSyA">_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ContentTypeInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_HcNW1DsPEem0pYHS5bGSyA">
+      <bpmn2:dataInputAssociation id="_ukO7NDsPEem0pYHS5bGSyA">
         <bpmn2:targetRef>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ResultClassInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_HcNW1TsPEem0pYHS5bGSyA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_HcNW1jsPEem0pYHS5bGSyA"><![CDATA[com.myspace.demo_bancolombia.VerificarClienteReply]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_HcNW1zsPEem0pYHS5bGSyA">_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ResultClassInputX</bpmn2:to>
+        <bpmn2:assignment id="_ukO7NTsPEem0pYHS5bGSyA">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_ukO7NjsPEem0pYHS5bGSyA"><![CDATA[com.myspace.demo_bancolombia.VerificarClienteReply]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_ukO7NzsPEem0pYHS5bGSyA">_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ResultClassInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_HcNW2DsPEem0pYHS5bGSyA">
+      <bpmn2:dataInputAssociation id="_ukO7ODsPEem0pYHS5bGSyA">
         <bpmn2:targetRef>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_HcNW2TsPEem0pYHS5bGSyA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_HcNW2jsPEem0pYHS5bGSyA"><![CDATA[Rest]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_HcNW2zsPEem0pYHS5bGSyA">_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_ukO7OTsPEem0pYHS5bGSyA">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_ukO7OjsPEem0pYHS5bGSyA"><![CDATA[Rest]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_ukO7OzsPEem0pYHS5bGSyA">_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_HcNW3DsPEem0pYHS5bGSyA">
+      <bpmn2:dataOutputAssociation id="_ukO7PDsPEem0pYHS5bGSyA">
         <bpmn2:sourceRef>_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122_ResultOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>verificaCliente</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
   </bpmn2:process>
-  <bpmndi:BPMNDiagram id="_HcNW3TsPEem0pYHS5bGSyA">
-    <bpmndi:BPMNPlane id="_HcNW3jsPEem0pYHS5bGSyA" bpmnElement="demo-bancolombia.ProcesoDemo">
+  <bpmndi:BPMNDiagram id="_ukO7PTsPEem0pYHS5bGSyA">
+    <bpmndi:BPMNPlane id="_ukO7PjsPEem0pYHS5bGSyA" bpmnElement="demo-bancolombia.ProcesoDemo">
       <bpmndi:BPMNShape id="shape__4F3857BE-1DF2-48D6-9A01-AD1EA2E79122" bpmnElement="_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122">
         <dc:Bounds height="102.0" width="154.0" x="237.0" y="77.0"/>
       </bpmndi:BPMNShape>
@@ -139,12 +141,12 @@ System.out.println("Valor obtenido -> "+verificaCliente.getNumCuenta());]]></dro
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
-  <bpmn2:relationship id="_HcNW3zsPEem0pYHS5bGSyA" type="BPSimData">
+  <bpmn2:relationship id="_ukO7PzsPEem0pYHS5bGSyA" type="BPSimData">
     <bpmn2:extensionElements>
       <bpsim:BPSimData>
         <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
           <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters"/>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122" id="_HcNW4DsPEem0pYHS5bGSyA">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_4F3857BE-1DF2-48D6-9A01-AD1EA2E79122" id="_ukO7QDsPEem0pYHS5bGSyA">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -164,7 +166,7 @@ System.out.println("Valor obtenido -> "+verificaCliente.getNumCuenta());]]></dro
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_AC7003BD-68F1-45ED-99CA-27D84F5CFEE2" id="_HcNW4TsPEem0pYHS5bGSyA">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_AC7003BD-68F1-45ED-99CA-27D84F5CFEE2" id="_ukO7QTsPEem0pYHS5bGSyA">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -174,7 +176,7 @@ System.out.println("Valor obtenido -> "+verificaCliente.getNumCuenta());]]></dro
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_HcNWwDsPEem0pYHS5bGSyA</bpmn2:source>
-    <bpmn2:target>_HcNWwDsPEem0pYHS5bGSyA</bpmn2:target>
+    <bpmn2:source>_ukO7IDsPEem0pYHS5bGSyA</bpmn2:source>
+    <bpmn2:target>_ukO7IDsPEem0pYHS5bGSyA</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>
