@@ -3,8 +3,16 @@
     <repository>
       <include>true</include>
       <metadata>
-        <id>redhat-ea-repository</id>
-        <url>https://maven.repository.redhat.com/earlyaccess/all</url>
+        <id>jboss-earlyaccess-plugin-repository</id>
+        <url>http://maven.repository.redhat.com/earlyaccess/all/</url>
+        <source>SETTINGS</source>
+      </metadata>
+    </repository>
+    <repository>
+      <include>true</include>
+      <metadata>
+        <id>jboss-public</id>
+        <url>https://repository.jboss.org/nexus/content/groups/public</url>
         <source>SETTINGS</source>
       </metadata>
     </repository>
@@ -12,7 +20,7 @@
       <include>true</include>
       <metadata>
         <id>redhat-ga-repository</id>
-        <url>https://maven.repository.redhat.com/ga</url>
+        <url>https://maven.repository.redhat.com/ga/</url>
         <source>SETTINGS</source>
       </metadata>
     </repository>
@@ -35,17 +43,17 @@
     <repository>
       <include>true</include>
       <metadata>
-        <id>central</id>
-        <url>https://repo.maven.apache.org/maven2</url>
-        <source>PROJECT</source>
+        <id>redhat-ga-repository</id>
+        <url>https://maven.repository.redhat.com/ga</url>
+        <source>SETTINGS</source>
       </metadata>
     </repository>
     <repository>
       <include>true</include>
       <metadata>
-        <id>maven2-repository</id>
-        <url>https://repo1.maven.org/maven2/</url>
-        <source>SETTINGS</source>
+        <id>central</id>
+        <url>https://repo.maven.apache.org/maven2</url>
+        <source>PROJECT</source>
       </metadata>
     </repository>
     <repository>
@@ -59,24 +67,16 @@
     <repository>
       <include>true</include>
       <metadata>
-        <id>jboss-earlyaccess-plugin-repository</id>
-        <url>http://maven.repository.redhat.com/earlyaccess/all/</url>
+        <id>redhat-ea-repository</id>
+        <url>https://maven.repository.redhat.com/earlyaccess/all</url>
         <source>SETTINGS</source>
       </metadata>
     </repository>
     <repository>
       <include>true</include>
       <metadata>
-        <id>jboss-public</id>
-        <url>https://repository.jboss.org/nexus/content/groups/public</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>redhat-ga-repository</id>
-        <url>https://maven.repository.redhat.com/ga/</url>
+        <id>maven2-repository</id>
+        <url>https://repo1.maven.org/maven2/</url>
         <source>SETTINGS</source>
       </metadata>
     </repository>
