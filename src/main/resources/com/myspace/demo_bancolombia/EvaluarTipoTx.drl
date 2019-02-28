@@ -31,7 +31,7 @@ when
     $t: Transaccion( existeCuenta == true, existeLog == true, isEqualValues() == false ) 
 then     
     modify($t){         
-        setValor(Math.Abs(getValorCuenta() - getValorLog()));         
+        //setValor(Math.Abs(getValorCuenta() - getValorLog()));         
         setResultRules("VALOR_NO_COINCIDE");
     } 
 end
