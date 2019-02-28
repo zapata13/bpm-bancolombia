@@ -6,12 +6,58 @@ package com.myspace.demo_bancolombia;
 
 public class Transaccion implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public Transaccion() {
-    }
+	@org.kie.api.definition.type.Label(value = "Fecha")
+	private java.lang.String fecha;
+	@org.kie.api.definition.type.Label(value = "Numero Cuenta")
+	private java.lang.String numCuenta;
+	@org.kie.api.definition.type.Label(value = "Tipo de Transaccion")
+	private java.lang.String tipotx;
+	@org.kie.api.definition.type.Label(value = "Valor")
+	private java.lang.Double valor;
 
+	public Transaccion() {
+	}
 
+	public java.lang.String getFecha() {
+		return this.fecha;
+	}
 
+	public void setFecha(java.lang.String fecha) {
+		this.fecha = fecha;
+	}
+
+	public java.lang.String getNumCuenta() {
+		return this.numCuenta;
+	}
+
+	public void setNumCuenta(java.lang.String numCuenta) {
+		this.numCuenta = numCuenta;
+	}
+
+	public java.lang.String getTipotx() {
+		return this.tipotx;
+	}
+
+	public void setTipotx(java.lang.String tipotx) {
+		this.tipotx = tipotx;
+	}
+
+	public java.lang.Double getValor() {
+		return this.valor;
+	}
+
+	public void setValor(java.lang.Double valor) {
+		this.valor = valor;
+	}
+
+	public Transaccion(java.lang.String fecha, java.lang.String numCuenta,
+			java.lang.String tipotx, java.lang.Double valor) {
+		this.fecha = fecha;
+		this.numCuenta = numCuenta;
+		this.tipotx = tipotx;
+		this.valor = valor;
+	}
 
 }
