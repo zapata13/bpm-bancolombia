@@ -25,13 +25,13 @@ then
     } 
 end  
 
-rule "Gabetas modified " 
+rule "Gabetas modified"
 ruleflow-group 'reglasBancolombia'
 when     
     $t: Transaccion( existeCuenta == true, existeLog == true, isEqualValues() == false ) 
 then     
     modify($t){         
-        setValor(Math.Abs(valorCuenta - valorLog));         
+        setValor(Math.Abs(getValorCuenta() - getValorLog()));         
         setResultRules("VALOR_NO_COINCIDE");
     } 
 end
